@@ -36,8 +36,8 @@ Enemy.prototype.render = function() {
 class Player {
     constructor() {
         // Position coordinate properties
-        this.x = 0;
-        this.y = 0;
+        this.x = 200;
+        this.y = 400;
         // Character image property
         this.sprite = 'images/char-boy.png';
     }
@@ -50,23 +50,23 @@ class Player {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
     // handleInput() to translate arrow key strokes to character movement on game board
-    handleInput(keyup) {
-        switch(keyup) {
-            // left (x)
-            case 37: this.x -= 10;
+    handleInput(keypress) {
+        switch(keypress) {
+            case 'left': this.x -= 100;
                 break;
-            // up (y)
-            case 38: this.y += 10;
+            case 'up': this.y -= 100;
                 break;
-            // right (x)
-            case 39: this.x += 10;
+            case 'right': this.x += 100;
                 break;
-            // down (y)
-            case 40: this.y -= 10;
+            case 'down': this.y += 100;
                 break;
         }
     }
     // resetPos() to reset player to starting position
+    resetPos() {
+        this.x = 200;
+        this.y = 400;
+    }
 }
 
 
