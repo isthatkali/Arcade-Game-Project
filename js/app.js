@@ -1,10 +1,10 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
-    // x pos
-    // y pos
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -23,6 +23,13 @@ Enemy.prototype.update = function(dt) {
         // multiply movement by dt parameter
     // else
         // reset position
+    if (this.x < 400) {
+        this.x += (this.speed*dt);
+    } 
+    // else {
+    //     this.y = 50;
+    // }
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -86,13 +93,18 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
+// new Enemy object
+const enemy1 = new Enemy(0, 50, 200);
+const enemy2 = new Enemy(0, 135, 100);
+const enemy3 = new Enemy(0, 225, 300);
+
+// allEnemies array to store all enemies
+let allEnemies = [];
+// could use for loop to create new enemy objects and push them into array?
+allEnemies.push(enemy1, enemy2, enemy3);
+
 // new Player object
 const player = new Player();
-
-// allEnemies array
-let allEnemies = [];
-    // for loop to create new enemy objects and push them into array
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
