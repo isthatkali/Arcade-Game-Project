@@ -18,7 +18,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
 
-    // if enemy is at gameboard boundary
+    // if enemy hasn't reached gameboard boundary
         // move forward
         // multiply movement by dt parameter
     // else
@@ -33,20 +33,41 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function() {
-    // Constructor
-        // Properties
-            // x & y position
-            // Selects character image for player
-            this.sprite = 'images/char-horn-girl.png';
-        // Methods
-            // update() to update position on gameboard
-                // check if play and enemy collided
-                // check if player won
-            // render() to draw where character is on board
-            // handleInput() to translate arrow key strokes to character movement on game board
-            // resetPos() to reset player to starting position
-};
+class Player {
+    constructor() {
+        // Position coordinate properties
+        this.x = 0;
+        this.y = 0;
+        // Character image property
+        this.sprite = 'images/char-boy.png';
+    }
+    // Methods
+    // update() to update position on gameboard        
+        // check if play and enemy collided
+        // check if player won
+    render() {
+        // draws player on gameboard based on x and y coordinates; copied from Enemy render function
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+    // handleInput() to translate arrow key strokes to character movement on game board
+    handleInput(keyup) {
+        switch(keyup) {
+            // left (x)
+            case 37: this.x -= 10;
+                break;
+            // up (y)
+            case 38: this.y += 10;
+                break;
+            // right (x)
+            case 39: this.x += 10;
+                break;
+            // down (y)
+            case 40: this.y -= 10;
+                break;
+        }
+    }
+    // resetPos() to reset player to starting position
+}
 
 
 // Now instantiate your objects.
@@ -54,8 +75,10 @@ var Player = function() {
 // Place the player object in a variable called player
 
 // new Player object
+const player = new Player();
 
 // allEnemies array
+let allEnemies = [];
     // for loop to create new enemy objects and push them into array
 
 
