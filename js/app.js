@@ -52,13 +52,25 @@ class Player {
     // handleInput() to translate arrow key strokes to character movement on game board
     handleInput(keypress) {
         switch(keypress) {
-            case 'left': this.x -= 100;
+            case 'left': 
+                if (this.x > 0) {
+                    this.x -= 100;
+                }
                 break;
-            case 'up': this.y -= 100;
+            case 'up': 
+                if (this.y > 0) {
+                    this.y -= 85;
+                }
                 break;
-            case 'right': this.x += 100;
+            case 'right': 
+                if (this.x < 400) {
+                    this.x += 100;
+                }
                 break;
-            case 'down': this.y += 100;
+            case 'down': 
+                if (this.y < 400) {
+                    this.y += 85;
+                }
                 break;
         }
     }
