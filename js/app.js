@@ -54,8 +54,12 @@ class Player {
         // check if player won
     update() {
         for (let enemy of allEnemies) {
-            if (this.y === (enemy.y + 10) && this.x < (enemy.x + 2) && this.x > (enemy.x - 2)) {
-                //alert('collision');
+            if (this.y < (enemy.y + 10) && 
+            this.y > (enemy.y -10) && 
+            this.x < (enemy.x + 10) && 
+            this.x > (enemy.x - 10)) {
+                // alert('collision');
+                console.log (this.x, enemy.x, this.y, enemy.y);
             }
         }
     }
@@ -101,8 +105,8 @@ class Player {
 // Place the player object in a variable called player
 
 // new Enemy object
-const enemy1 = new Enemy(0, 50, 100);
-const enemy2 = new Enemy(0, 135, 100);
+const enemy1 = new Enemy(0, 60, 100);
+const enemy2 = new Enemy(0, 145, 100);
 const enemy3 = new Enemy(0, 225, 300);
 const enemy4 = new Enemy(0, 315, 150);
 
