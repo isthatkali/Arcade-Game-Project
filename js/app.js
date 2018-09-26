@@ -46,14 +46,21 @@ class Player {
         this.x = 200;
         this.y = 400;
         // Character image property
-        this.sprite = 'images/char-boy.png';
+        this.sprite = 'images/char-horn-girl.png';
     }
     // Methods
     // update() to update position on gameboard        
-        // check if play and enemy collided
+        // check if play and enemy collided (need to check positions of objects in allEnemies array)
         // check if player won
+    update() {
+        for (let enemy of allEnemies) {
+            if (this.y === (enemy.y + 10) && this.x < (enemy.x + 2) && this.x > (enemy.x - 2)) {
+                //alert('collision');
+            }
+        }
+    }
     render() {
-        // draws player on gameboard based on x and y coordinates; copied from Enemy render function
+        // draws player on gameboard based on x and y coordinates; copied from provided Enemy render function above
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
     // handleInput() to translate arrow key strokes to character movement on game board
@@ -94,14 +101,15 @@ class Player {
 // Place the player object in a variable called player
 
 // new Enemy object
-const enemy1 = new Enemy(0, 50, 200);
+const enemy1 = new Enemy(0, 50, 100);
 const enemy2 = new Enemy(0, 135, 100);
 const enemy3 = new Enemy(0, 225, 300);
+const enemy4 = new Enemy(0, 315, 150);
 
 // allEnemies array to store all enemies
 let allEnemies = [];
 // could use for loop to create new enemy objects and push them into array?
-allEnemies.push(enemy1, enemy2, enemy3);
+allEnemies.push(enemy1, enemy2, enemy3, enemy4);
 
 // new Player object
 const player = new Player();
