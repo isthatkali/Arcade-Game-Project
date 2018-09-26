@@ -26,9 +26,9 @@ Enemy.prototype.update = function(dt) {
     if (this.x < 400) {
         this.x += (this.speed*dt);
     } 
-    // else {
-    //     this.y = 50;
-    // }
+    else {
+        this.x = 0;
+    }
 
 };
 
@@ -50,7 +50,7 @@ class Player {
     }
     // Methods
     // update() to update position on gameboard        
-        // check if play and enemy collided (need to check positions of objects in allEnemies array)
+        // check if player and enemy collided (need to check positions of objects in allEnemies array)
         // check if player won
     update() {
         for (let enemy of allEnemies) {
@@ -58,8 +58,10 @@ class Player {
             this.y > (enemy.y -10) && 
             this.x < (enemy.x + 10) && 
             this.x > (enemy.x - 10)) {
-                // alert('collision');
-                console.log (this.x, enemy.x, this.y, enemy.y);
+                // reset position after collision
+                this.resetPos();
+            } else if (this.x === 0 && this.y === 0) {
+                alert('Winner winner!');
             }
         }
     }
@@ -104,7 +106,7 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-// new Enemy object
+// new Enemy objects
 const enemy1 = new Enemy(0, 60, 100);
 const enemy2 = new Enemy(0, 145, 100);
 const enemy3 = new Enemy(0, 225, 300);
@@ -112,7 +114,7 @@ const enemy4 = new Enemy(0, 315, 150);
 
 // allEnemies array to store all enemies
 let allEnemies = [];
-// could use for loop to create new enemy objects and push them into array?
+// could use for loop to create new random enemy objects and push them into array?
 allEnemies.push(enemy1, enemy2, enemy3, enemy4);
 
 // new Player object
