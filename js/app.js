@@ -29,7 +29,6 @@ Enemy.prototype.update = function(dt) {
     else {
         this.x = 0;
     }
-
 };
 
 // Draw the enemy on the screen, required method for game
@@ -56,12 +55,17 @@ class Player {
         for (let enemy of allEnemies) {
             if (this.y < (enemy.y + 10) && 
             this.y > (enemy.y -10) && 
-            this.x < (enemy.x + 10) && 
-            this.x > (enemy.x - 10)) {
+            this.x < (enemy.x + 20) && 
+            this.x > (enemy.x - 20)) {
                 // reset position after collision
                 this.resetPos();
-            } else if (this.x === 0 && this.y === 0) {
-                alert('Winner winner!');
+            } else if (this.y === -25) {
+                this.resetPos();
+                for (let enemy of allEnemies) {
+                    enemy.speed = 0;
+                    enemy.x = 0;
+                }
+                alert('You win!');
             }
         }
     }
@@ -101,15 +105,14 @@ class Player {
     }
 }
 
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
 // new Enemy objects
-const enemy1 = new Enemy(0, 60, 100);
-const enemy2 = new Enemy(0, 145, 100);
-const enemy3 = new Enemy(0, 225, 300);
+const enemy1 = new Enemy(0, 60, 300);
+const enemy2 = new Enemy(0, 145, 200);
+const enemy3 = new Enemy(0, 225, 100);
 const enemy4 = new Enemy(0, 315, 150);
 
 // allEnemies array to store all enemies
