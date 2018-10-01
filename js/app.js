@@ -1,3 +1,5 @@
+let win = false; // need another condition or else alert will pop up endlessly
+
 // Enemies our player must avoid
 var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
@@ -59,15 +61,24 @@ class Player {
             this.x > (enemy.x - 20)) {
                 // reset position after collision
                 this.resetPos();
-            } else if (this.y === -25) {
-                this.resetPos();
-                for (let enemy of allEnemies) {
-                    enemy.speed = 0;
-                    enemy.x = 0;
-                }
-                alert('You win!');
+            } else if (!win && this.y === -25) {
+                this.win();
             }
         }
+    }
+    win() {
+        // when player wins, positions will be reset and alert will be displayed
+        win = true;
+
+        for (let enemy of allEnemies) {
+            enemy.speed = 0;
+            enemy.x = 0;
+        }
+        setTimeout(() => {
+            alert("ya did it!");
+        }, 500);
+
+        this.resetPos();
     }
     render() {
         // draws player on gameboard based on x and y coordinates; copied from provided Enemy render function above
