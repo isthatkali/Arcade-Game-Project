@@ -11,6 +11,8 @@ For detailed instructions on how to get started, check out this [guide](https://
 
 ## Table of Contents
 * [Intro] (#intro)
+* [Installation] (#installation)
+* [Gameplay] (#gameplay)
 * [Dependencies] (#dependencies)
 * [Contributing](#contributing)
 * [Potential] (#potential)
@@ -18,6 +20,16 @@ For detailed instructions on how to get started, check out this [guide](https://
 
 ## Intro
 This project began with the starter code provided by Udacity for the FEND program. The goal was to make the game functional and error free by adding code to app.js
+
+## Installation
+1. Download .zip file from https://github.com/isthatkali/Arcade-Game-Project.git
+2. Unzip 'Arcade Game Project.zip'
+3. Double click 'index.html' to open into browser
+
+## Gameplay
+- Use keyboard arrow keys to navigate your player safely across the board
+- Make sure to avoid enemy bugs or the journey restarts!
+- Play again and again
 
 ## Dependencies
 - Visual Studio Code text editor
@@ -41,6 +53,6 @@ Starter code provided by Udacity
     - https://www.diigo.com/outliner/fj3m65/Udacity-Classic-Arcade-Game-Project-(project-%233)?key=al7ek43dms
     - Matthew Cranford Arcade Game Walkthrough for initial guidance
     - Slack channels for inspiration and encouragement
+    - Udacity reviewers and their feedback
 
 
-# Arcade-Game-Project
