@@ -47,10 +47,6 @@ class Player {
     }
     win() {
         win = true;
-        for (let enemy of allEnemies) {
-            enemy.speed = 0;
-            enemy.x = 0;
-        }
         setTimeout(() => {
             alert("ya did it!");
         }, 500);
