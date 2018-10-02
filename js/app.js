@@ -37,8 +37,8 @@ class Player {
         for (let enemy of allEnemies) {
             if (this.y < (enemy.y + 10) && 
             this.y > (enemy.y -10) && 
-            this.x < (enemy.x + 10) && 
-            this.x > (enemy.x - 10)) {
+            this.x < (enemy.x + 60) && 
+            this.x > (enemy.x - 60)) {
                 this.resetPos();
             } else if (!win && this.y === -25) {
                 this.win();
